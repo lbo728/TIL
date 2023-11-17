@@ -1,16 +1,19 @@
 # 이벤트(Emit)
 
-[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html) | [Composition API와 타입스크립트](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
+[참고]
+[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html) | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
+<br />
 
-### 목차
+> 목차
 [1. 용법](#1-용법)
-[2. Script 작성](#2-script-작성)
-[3. 이슈](#3-이슈)
+[2. 이슈](#2-이슈)
+[3. 해결과정](#3-해결과정)
 
 
 
 # 1. 용법
 
+### 상위 컴포넌트
 컴포넌트는 내장 메서드 `$emit`을 사용하여 템플릿 표현식(예: `v-on` 핸들러에서)에서 직접 사용자 정의 이벤트를 발신할 수 있습니다:
 
 ```js
@@ -32,7 +35,7 @@
 <MyComponent @some-event.once="callback" />
 ```
 
-# 2. Script 작성
+###Script 작성
 
 `<script setup>` 대신 명시적으로 `setup` 함수를 사용하는 경우, 이벤트는 [`emits`](https://v3-docs.vuejs-korea.org/api/options-state.html#emits) 옵션을 사용하여 선언되어야 하며 `emit` 함수는 `setup()` 컨텍스트에 노출되어야 합니다:
 
@@ -51,7 +54,7 @@ export default {
 
 Typescript를 사용한다면, 
 
-`<script setup>` 에서 런타임 선언 또는 타입 선언을 사용하여 `emit` 함수를 입력할 수 있습니다.:
+`<script setup>` 에서 런타임 선언 또는 타입 선언을 사용하여 `emit` 함수를 입력할 수 있습니다.
 
 ```js
 <script setup lang="ts">
@@ -83,22 +86,25 @@ export default defineComponent({
 })
 ```
 
-# 3. 이슈
-Home에 있는 컴포넌트를 분리해서 HeroSection에서 emit을 올려 clicktoStart 펑션을 연결했을 때는 의도한대로 동작하지만, GetStarted 컴포넌트를 만들어 emit에 clicktoStart를 연결했을 때는 버튼을 누르지 않았는데도 바로 `/score`로  리다이렉션 시켜버린다. 
-```vue
-<HeroSection @btn-click="clicktoStart('today')" />
-```
-
-```vue
-<GetStarted @btn-click="clicktoStart('score')" />
-```
-
-이유가 뭘까?
-
-오잉 GetStarted에서 emit을 없앴는데도 @btn-click이 동작한다. 
-HeroSection의 script에서 만든 defineComponent가 전역적으로 동작하는 것인가?
+# 2. 이슈
+Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickTo'라는 이름의 Function을 연결했을 때는 의도한대로 동작하지만, BComponent 컴포넌트를 만들어 `emit`에 clickTo를 연결했을 때는 버튼을 누르지 않았는데도 바로 '/detail1'로 리다이렉션 시켜버러리는 오류가 발생했다.
 ```js
-// HeroSection
+// Home.vue
+...
+<AComponent @btn-click="clickTo('detail1')" />
+<BComponent @btn-click="clickTo('detail2')" />
+...
+```
+
+
+
+# 3. 해결과정
+
+여러가지 시도를 해보다 AComponent에서 emit을 없앴는데도 @btn-click이 동작하는 것을 확인하게 되었다.
+AComponent script에서 만든 `defineComponent`가 전역적으로 동작하는 것인가?
+
+```js
+// AComponent.vue
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -108,15 +114,16 @@ export default defineComponent({
 	},
 })
 ```
-놀랍게도, 이 HeroSection/script.ts의 emit을 없애도 작동했다.
+놀랍게도, 이 AComponent에서 emit을 없애도 작동했다.
 
-```vue
-<VButton color="primary" bold rounded raised @click="$emit('get-started')">
+```js
+<VButton color="primary" bold rounded raised @click="$emit('btn-click')">
 	See My Scores
 </VButton>
 ```
-중요한건, 자식 컴포넌트의 vue에서 `$emit('get-started')`이름과, 부모 컴포넌트의 vue에서 
-```vue
-<HeroSection @get-started="clicktoStart('today')" />
+중요한건, 자식 컴포넌트의 vue에서 `$emit('btn-click')`이라고 명명한 emit의 이름과, 부모 컴포넌트의 vue에서 
+
+```js
+<HeroSection @btn-click="clickTo('detail1')" />
 ```
-`v-on` 에 이름을 맞춰주는 것인 것 같다. 이벤트 이름을 매칭시켜준 것 이상으로 콜백함수를 담아서 넘긴다면 script에 그 이상의 코드를 담아주어야 하지만,단순히 매칭시킬 뿐이면 이렇게 이름을 맞춰주는 것만으로도 정상 작동하는 것으로 보인다.
+`v-on` 에 이름을 맞춰주는 것인 것 같다. 이벤트 이름을 매칭시켜준 것 이상으로 콜백함수를 담아서 넘긴다면 script에 그 이상의 코드를 담아주어야 하지만, 단순히 매칭시킬 뿐이면 이렇게 이름을 맞춰주는 것만으로도 정상 작동하는 것으로 보인다.
