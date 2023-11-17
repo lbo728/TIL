@@ -1,18 +1,12 @@
-> 목차
-> 1. [용법](#용법)
-> 2. [이슈](#이슈)
-> 3. [해결과정](#해결과정)
+목차
+1. [용법](#용법)
+2. [이슈](#이슈)
+3. [해결과정](#해결과정)
 
 # 이벤트(Emit)
 
 
 ## 용법
-
-> 참고 문서
-> - [컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html)
-> - [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
-
-
 
 <br />
 
@@ -88,6 +82,14 @@ export default defineComponent({
   }
 })
 ```
+
+<br />
+
+> 참고 문서
+> - [컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html)
+> - [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
+
+
 
 <br />
 
