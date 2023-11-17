@@ -1,7 +1,7 @@
 # 이벤트(Emit)
 
 [참고]
-[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html){:target="_blank"} | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits){:target="_blank"}
+[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html){: target="_blank"} | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits){: target="_blank"}
 <br />
 
 > 목차
@@ -87,7 +87,7 @@ export default defineComponent({
 ```
 
 # 2. 이슈
-Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickTo'라는 이름의 Function을 연결했을 때는 의도한대로 동작하지만, BComponent 컴포넌트를 만들어 `emit`에 clickTo를 연결했을 때는 버튼을 누르지 않았는데도 바로 '/detail1'로 리다이렉션 시켜버러리는 오류가 발생했다.
+Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickTo'라는 이름의 Function을 연결했을 때는 의도한대로 동작하지만, BComponent 컴포넌트를 만들어 `emit`에 clickTo를 연결했을 때는 버튼을 누르지 않았는데도 바로 '/detail1'로 리다이렉션 시켜버러리는 오류가 발생했다.
 ```js
 // Home.vue
 ...
