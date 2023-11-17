@@ -5,13 +5,13 @@
 > - [2. 이슈](#2-이슈)
 > - [3. 해결과정](#3-해결과정)
 
+<br />
 
 # 1. 용법
 
 > 참고
 [컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html) | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
 
-<br />
 
 ### Template
 컴포넌트는 내장 메서드 `$emit`을 사용하여 템플릿 표현식(예: `v-on` 핸들러에서)에서 직접 사용자 정의 이벤트를 발신할 수 있습니다:
