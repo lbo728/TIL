@@ -1,13 +1,12 @@
-# 이벤트(Emit)
-
 > 목차
-> 1. [Usage](#usage)
+> 1. [용법](#용법)
 > 2. [이슈](#이슈)
 > 3. [해결과정](#해결과정)
 
-<br />
+# 이벤트(Emit)
 
-# Usage
+
+## 용법
 
 > 참고 문서
 > - [컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html)
@@ -90,7 +89,9 @@ export default defineComponent({
 })
 ```
 
-# 이슈
+<br />
+
+## 이슈
 Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickTo'라는 이름의 Function을 연결했을 때는 의도한대로 동작하지만, BComponent 컴포넌트를 만들어 `emit`에 clickTo를 연결했을 때는 버튼을 누르지 않았는데도 바로 '/detail1'로 리다이렉션 시켜버러리는 오류가 발생했다.
 ```js
 // Home.vue
@@ -100,9 +101,9 @@ Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickT
 ...
 ```
 
+<br />
 
-
-# 해결과정
+## 해결과정
 
 여러가지 시도를 해보다 AComponent에서 emit을 없앴는데도 @btn-click이 동작하는 것을 확인하게 되었다.
 AComponent script에서 만든 `defineComponent`가 전역적으로 동작하는 것인가?
