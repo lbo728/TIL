@@ -1,7 +1,7 @@
 # 이벤트(Emit)
 
 [참고]
-[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html) | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
+[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html){:target="_blank"} | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits){:target="_blank"}
 <br />
 
 > 목차
