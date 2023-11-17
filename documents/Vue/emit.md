@@ -1,17 +1,21 @@
 # 이벤트(Emit)
 
 > 목차
-> - [1. 용법](#1-용법)
-> - [2. 이슈](#2-이슈)
-> - [3. 해결과정](#3-해결과정)
+> 1. [Usage](#usage)
+> 2. [이슈](#이슈)
+> 3. [해결과정](#해결과정)
 
 <br />
 
-# 1. 용법
+# Usage
 
-> 참고
-[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html) | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
+> 참고 문서
+> - [컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html)
+> - [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits)
 
+
+
+<br />
 
 ### Template
 컴포넌트는 내장 메서드 `$emit`을 사용하여 템플릿 표현식(예: `v-on` 핸들러에서)에서 직접 사용자 정의 이벤트를 발신할 수 있습니다:
@@ -86,7 +90,7 @@ export default defineComponent({
 })
 ```
 
-# 2. 이슈
+# 이슈
 Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickTo'라는 이름의 Function을 연결했을 때는 의도한대로 동작하지만, BComponent 컴포넌트를 만들어 `emit`에 clickTo를 연결했을 때는 버튼을 누르지 않았는데도 바로 '/detail1'로 리다이렉션 시켜버러리는 오류가 발생했다.
 ```js
 // Home.vue
@@ -98,7 +102,7 @@ Home에 있는 컴포넌트를 분리해서 ACompoent에서 `emit`으로 'clickT
 
 
 
-# 3. 해결과정
+# 해결과정
 
 여러가지 시도를 해보다 AComponent에서 emit을 없앴는데도 @btn-click이 동작하는 것을 확인하게 되었다.
 AComponent script에서 만든 `defineComponent`가 전역적으로 동작하는 것인가?
