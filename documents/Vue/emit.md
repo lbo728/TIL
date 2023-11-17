@@ -1,20 +1,14 @@
 # 이벤트(Emit)
 
 [참고]
-<!-- [컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html){: target="_blank"} | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits){: target="_blank"} -->
-[컴포넌트 이벤트 | Vue.js][] | [Composition API와 타입스크립트 | Vue.js][]
-
-[컴포넌트 이벤트 | Vue.js]: https://v3-docs.vuejs-korea.org/guide/components/events.html
-[Composition API와 타입스크립트 | Vue.js]: https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits
-
+[컴포넌트 이벤트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/components/events.html){: target="_blank"} | [Composition API와 타입스크립트 | Vue.js](https://v3-docs.vuejs-korea.org/guide/typescript/composition-api.html#typing-component-emits){: target="_blank"}
 
 <br />
 
 > 목차
-[1. 용법](#1-용법)
-[2. 이슈](#2-이슈)
-[3. 해결과정](#3-해결과정)
-
+> [1. 용법](#1-용법)
+> [2. 이슈](#2-이슈)
+> [3. 해결과정](#3-해결과정)
 
 
 # 1. 용법
