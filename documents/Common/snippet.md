@@ -2,7 +2,7 @@
 [참고]
 [VS Code에서 나만의 Snippets 만들기 | 향로](https://jojoldu.tistory.com/491)
 
-
+[Tool]
 [Snippet Generaotr](https://snippet-generator.app/?description=&tabtrigger=&snippet=export+default+%7B%0A++setup%28%29+%7B%0A++++return+%7B%7D%0A++%7D%2C%0A%7D%0A&mode=vscode): 내가 작성한 코드를 스니펫 json 코드 형태로 변환
 ![Alt text](<스크린샷 2023-11-20 오전 11.36.04.png>)
 
