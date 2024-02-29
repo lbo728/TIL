@@ -1,7 +1,7 @@
 # UML 다이어그램
 
 ### 1. UML 다이어그램은?
-- UML은 Unified Modeling Language의 약자로 **통합 모델링 언어**를 의미함
+- UML은 Unified Modeling Language의 약자로 **통합 모델링 언어**를 의미
 - UML 다이어그램은 통합 모델링 언어를 사용하여 시스템 상호작용, 업무흐름, 컴포넌스 관계, 시스템 구조 등 소프트 웨어 등을 그린 도면
 <br />
 
